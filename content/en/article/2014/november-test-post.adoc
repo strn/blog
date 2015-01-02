@@ -1,0 +1,12 @@
+Testing "Pelican" ...
+=====================
+:Slug: testing-pelican
+:Author: Puramotza
+:Email: <puramoca021 on gmail pika com>
+:Date: 2014-11-19
+:Category: Blog
+:Lang: en
+:Encoding: utf-8
+:Tags: Pelican, Linux, Python
+
+This page tests Pelican's plugin for creating multi-language sites.

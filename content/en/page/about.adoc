@@ -1,0 +1,9 @@
+About me
+========
+:Slug: about
+:Date: 2014-10-09
+:Tags: about, site
+:Lang: en
+:Encoding: utf-8
+
+A couple of words about me.

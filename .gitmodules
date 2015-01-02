@@ -1,0 +1,4 @@
+[submodule "prod"]
+	path = prod
+	url = https://github.com/strn/strn.github.io.git
+	ignore = all

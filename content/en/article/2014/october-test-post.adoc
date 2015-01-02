@@ -1,0 +1,12 @@
+"October Pest"
+==============
+:Slug: october-pest
+:Author: Puramotza
+:Email: <puramoca021 -on- gmail point com>
+:Date: 2014-10-12
+:Category: Blog
+:Lang: en
+:Encoding: utf-8
+:Tags: Linux, Python
+
+Post in October.

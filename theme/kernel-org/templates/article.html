@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block content %}
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{ article.title}}</a></h1>
+      {% include 'twitter.html' %}
+    </header>
+
+    <div class="entry-content">
+      {% include 'article_infos.html' %}
+      {{ article.content }}
+      {% if article.status != "draft" %}
+        <hr class="article"/>
+		{% include 'disqus_script.html' %}
+	  {% endif %}
+	  
+	  <table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			{% if article.prev_article %}
+			 <td align="left">
+				 <a class="readmore" href="{{ SITEURL }}/{{ article.prev_article.url}}">
+					 <strong>&lt;&lt;</strong> {{ article.prev_article.title }}
+				 </a>
+			 </td>
+			{% endif %}
+			{% if article.next_article %}
+			 <td align="right">
+				 <a class="readmore" href="{{ SITEURL }}/{{ article.next_article.url}}">
+					 {{ article.next_article.title }} <strong>&gt;&gt;</strong>
+				 </a>
+			 </td>
+			{% endif %}
+		</tr>
+      </table>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+{% endblock %}

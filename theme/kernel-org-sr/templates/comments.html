@@ -1,0 +1,146 @@
+<div class="comments">
+	<div id="hashover" class="png">
+{% if article.comments %}
+		<h3>{{ article.comments_count }} коментара</h3>
+	
+    {% for comment in article.comments recursive %}
+        {% if loop.depth0 == 0 %}
+            {% set marginLeft = 0 %}
+            {% set classReply = '' %}
+        {% else %}
+            {% set marginLeft = PELICAN_COMMENT_SYSTEM_IDENTICON_SIZE + 2 %}
+            {% set classReply = ' hashover-reply' %}
+        {% endif %}
+		<div style="margin: 16px 0px 12px {{marginLeft}}px;" class="hashover-comment{{classReply}}">
+			<span class="hashover-avatar">
+				<img src="{{ SITEURL }}/{{ comment.avatar }}" alt="аватар"
+					height="{{ PELICAN_COMMENT_SYSTEM_IDENTICON_SIZE }}"
+					width="{{ PELICAN_COMMENT_SYSTEM_IDENTICON_SIZE }}" />
+			</span>
+			<div class="hashover-balloon">
+				<div class="hashover-header">
+					<b class="hashover-name">{{ comment.author }}</b>
+					<span class="hashover-date">
+						<a href="{{ SITEURL }}/{{ article.url }}#comment-{{comment.slug}}" rel="bookmark" title="Стална веза ка овом коментару">{{ comment.locale_date }}</a>
+					</span>
+				</div>
+				<div class="hashover-content">
+					{{ comment.content }}
+				</div>
+				<div class="hashover-footer">
+					<span class="hashover-buttons">
+						<a href="#" onclick="reply('{{comment.slug | urlencode}}');" title="Одговор на коментар" class="hashover-has-email">Одговорити</a>
+					</span>
+				</div>
+			</div>			
+			{% if comment.replies %}
+				{{ loop(comment.replies) }}
+			{% endif %}
+		</div>
+    {% endfor %}
+{% endif %}
+		{% if PELICAN_COMMENT_SYSTEM %}
+	    <p>
+		    <img src="/static/image/newsfeed-atom.png" height="24" width="24" alt="RSS ток"/>
+			<a href="{{ SITEURL }}/{{ PELICAN_COMMENT_SYSTEM_FEED|format(article.slug) }}" rel="alternate"> Праћење коментара на овај чланак.</a>
+		</p>
+		{% endif %}
+		<hr class="article"/>
+		<b class="hashover-post-comment">Оставите коментар на чланак „{{ article.title }}“:</b>
+		<br>
+		<form id="hashover_form" name="hashover_form" action="#">
+			<div class="hashover-balloon">
+				<div class="hashover-inputs">
+					<div class="hashover-name-input">
+						<input type="text" name="name" id="hashover-form-name" title="Надимак" value="" maxlength="30" class="opt-name" placeholder="Надимак"/>
+					</div>
+					<div class="hashover-email-input">
+						<input type="text" name="email" id="hashover-form-email" title="Адреса електронске поште" value="" class="opt-email" placeholder="Адреса електронске поште"/>
+					</div>
+					<div class="hashover-website-input">
+						<input type="text" name="website" id="hashover-form-website" title="Веб страница" value="" class="opt-website" placeholder="Веб страница"/>
+					</div>
+				</div>
+				<textarea rows="7" cols="63" id="hashover-form-comment" name="comment" placeholder="Место за коментар"></textarea>
+				<p id="info-message" class="info message gap-top" hidden></p>
+				<input class="hashover-submit" type="submit" value="Слање коментара електронском поштом" style="width: 100%;" onclick="return hashover_submit(true, this);" onsubmit="return hashover_submit(true, this);" />
+				<br/>
+				<input name="replyto" type="hidden" id="hashover-form-replyto" />
+				<span class="cmtfont" >У коментару можете да користите синтаксу језика <a href="https://de.wikipedia.org/wiki/Markdown">Маркдаун</a>.<br/><i>Коментар ће бити објављен тек ако буде одобрен.</i></span>
+			</div>
+		</form>
+	</div><!-- #hashover -->
+	<br/>
+</div>
+
+<script type="text/javascript">
+	function reply(id) {
+		id = decodeURIComponent(id);
+		$('html, body').animate({ scrollTop: $("#hashover_form").offset().top }, 1000);
+		$('#hashover-form-replyto').val(id);
+	}
+
+	$(document).ready(function() {
+
+		function generateMailToLink() {
+			var korisnik = 'strngit';
+			var domain = 'gmail.com';
+			var subject = 'Коментар на чланак „{{ article.title }}“ са блога „{{ SITENAME }}“' ;
+
+			var now = new Date();
+			tzo = -now.getTimezoneOffset(),
+			dif = tzo >= 0 ? '+' : '-',
+			pad = function(num) {
+				norm = Math.abs(Math.floor(num));
+				return (norm < 10 ? '0' : '') + norm;
+			};
+			var body = ''
+				+ 'Здраво,\n\n\nШаљем нови коментар на "{{ article.slug }}".\n\nПоздрав, ' + $("#hashover-form-name").val() + '\n\n\n'
+				+ 'Сиров текст коментара:\n'
+				+ '--- KOMEHTAP ----------------------------------------\n'
+				+ 'slug: {{ article.slug }}\n'
+				+ 'email: ' + $("#hashover-form-email").val() + '\n'
+				+ 'title: Коментар\n'
+				+ 'date: ' + now.getFullYear()
+				           + '-' + pad(now.getMonth()+1)
+				           + '-' + pad(now.getDate())
+				           + 'T' + pad(now.getHours())
+				           + ':' + pad(now.getMinutes())
+				           + dif + pad(tzo / 60)
+				           + ':' + pad(tzo % 60) +'\n'
+				+ 'author: ' + $("#hashover-form-name").val() + '\n';
+
+			var replyto = $('#hashover-form-replyto').val();
+			if (replyto.length > 0) {
+				body += 'replyto: ' + replyto + '\n'
+			}
+
+			var url = $("#hashover-form-website").val();
+			if (url.length != 0) {
+				if (url.substr(0,7) != 'http://' && url.substr(0,8) != 'https://') {
+					url = 'http://' + url;
+				}
+				body += 'website: ' + url + '\n';
+			}
+			body += '\n'
+				+ $("#hashover-form-comment").val() + '\n'
+				+ '--- KOMEHTAP ----------------------------------------\n';
+
+			var link = 'mailto:' + korisnik + '@' + domain + '?subject='
+				+ encodeURIComponent(subject)
+				+ "&body="
+				+ encodeURIComponent(body);
+			console.log(link)
+			return link;
+		}
+
+
+		$('#hashover_form').on("submit",
+			function( event ) {
+				event.preventDefault();
+				$(location).attr('href', generateMailToLink());
+			}
+		);
+	});
+</script>
+<noscript>Молим омогућите JavaScript како бисте видели коментаре.</noscript>
