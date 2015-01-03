@@ -91,7 +91,7 @@ DEFAULT_PAGINATION = 3
 THEME = 'theme/kernel-org-sr'
 
 # Where to create site
-OUTPUT_PATH = 'output/'
+OUTPUT_PATH = 'dev/'
 # Whether to copy article sources
 OUTPUT_SOURCES = False
 
@@ -128,14 +128,13 @@ I18N_SUBSITES = {
 		'DEFAULT_LANG' : 'en',
 		'ARTICLE_PATHS' : [ 'en/article' ],
 		'PAGE_PATHS' : [ 'en/page' ],
-		'OUTPUT_PATH' : 'output/en',
+		'OUTPUT_PATH' : 'dev/en',
 		'MENUITEMS' : (
 			( 'Archive', '/en/archives.html' ),
 			( 'Tags', '/en/tags.html' ),
 			( 'About me', '/en/page/about.html' ),
 			( 'Contact', '/en/page/contact.html' )
 		),
-		'PELICAN_COMMENT_SYSTEM_DIR' : 'en/comment',
 		'DISQUS_SITENAME' : 'mudrovanja',
 	},
 }
