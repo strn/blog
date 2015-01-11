@@ -3,13 +3,12 @@
 # Configuration section
 
 import codecs
-import getopt
-import logging
-import os.path
-import sys
 import ConfigParser
+import logging
+import optparse
+import os.path
 import re
-from optparse import OptionParser
+import sys
 
 
 HELPTEXT = "%s <options>" % os.path.normpath(sys.argv[0])
@@ -28,7 +27,7 @@ def input_files_callback(option, opt_str, value, parser):
 
 
 if __name__ == "__main__":
-	parser = OptionParser(usage=HELPTEXT)
+	parser = optparse.OptionParser(usage=HELPTEXT)
 	parser.add_option("-i", "--input", action="callback", dest="inputFiles",
 		callback=input_files_callback,
 		help="Name of input file or pattern matching files that will be processed")

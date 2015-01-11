@@ -3,14 +3,12 @@
 # Configuration section
 
 import codecs
-import getopt
-import logging
-import os.path
-import sys
 import ConfigParser
+import logging
+import optparse
+import os.path
 import re
-from optparse import OptionParser
-
+import sys
 
 HELPTEXT = "%s <options>" % os.path.normpath(sys.argv[0])
 BEGINTRANS = '{% trans %}'
@@ -30,7 +28,7 @@ def input_files_callback(option, opt_str, value, parser):
 
 
 if __name__ == "__main__":
-	parser = OptionParser(usage=HELPTEXT)
+	parser = optparse.OptionParser(usage=HELPTEXT)
 	parser.add_option("-i", "--input", action="callback", dest="inputFiles",
 		callback=input_files_callback,
 		help="Name of input file or pattern matching files that will be processed")
@@ -66,7 +64,8 @@ if __name__ == "__main__":
 			msgs = ConfigParser.SafeConfigParser( allow_no_value=True )
 			msgs.optionxform = str
 			
-			if os.path.isfile( options.msgFile ):	
+			if os.path.isfile( options.msgFile ):
+				# Read configuration file
 				msgs.readfp( codecs.open(options.msgFile, 'rb', 'utf-8') )
 		except IOError:
 			print 'Cannot open msg file "%s" for reading, aborting ...' % options.msgFile
@@ -76,7 +75,10 @@ if __name__ == "__main__":
 		print 'Input files were not specified, aborting ...'
 		sys.exit(7)
 
+	# Compile regular expression that will find strings that need
+	# to be localized
 	regex = re.compile(r'\{%\s*trans\s*%\}([^\}]*)\{%\s*endtrans\s*%\}')
+	
 	# Open input files and extract placeholders for localized messages
 	
 	for fName in options.inputFiles:
@@ -84,6 +86,7 @@ if __name__ == "__main__":
 		tail, fileName = os.path.split( filePath )
 
 		INFILE = codecs.open( filePath, 'rb', 'utf-8' )
+		# Create output file, with all strings localized
 		outFilePath = os.path.join(options.outputDir, fileName)
 		
 		try:
@@ -93,6 +96,7 @@ if __name__ == "__main__":
 			sys.exit(8)
 			
 		for line in INFILE.readlines():
+			# Find strings that need to be localized
 			placeholderList = regex.findall( line )
 			
 			newLine = line

@@ -23,11 +23,10 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = True
 # static paths will be copied under the same name
 STATIC_PATHS = [
-	'static',
-	'static/image/favicon.ico'
+	'static'
 ]
 EXTRA_PATH_METADATA = {
-    'static/image/favicon.ico' : {'path': 'favicon.ico'},
+    'static/image/favicon.ico' : {'path': 'favicon.ico'}
 }
 TYPOGRIFY = True
 # Markdown (MD) extensions
@@ -100,13 +99,6 @@ PLUGINS      = [ 'asciidoc_reader', 'gravatar', 'tipue_search', 'i18n_subsites',
 ASCIIDOC_OPTIONS = [ "-a source-highlighter=pygments" ]
 ASCIIDOC_BACKEND = 'html5'
 
-# Options for "pelican_comment_system" plugin
-PELICAN_COMMENT_SYSTEM = None
-PELICAN_COMMENT_SYSTEM_DIR = 'sr/comment'
-PELICAN_COMMENT_SYSTEM_IDENTICON_DATA = ( 'author', 'email', )
-PELICAN_COMMENT_SYSTEM_IDENTICON_SIZE = 48
-PELICAN_COMMENT_SYSTEM_FEED = 'feeds/comment.%s.atom.xml'
-
 # Options for i18n_subsites plugin
 # mapping: language_code -> settings_overrides_dict
 I18N_SUBSITES = {
@@ -126,6 +118,7 @@ I18N_SUBSITES = {
 		'ARTICLE_PATHS' : [ 'en/article' ],
 		'PAGE_PATHS' : [ 'en/page' ],
 		'OUTPUT_PATH' : 'dev/en',
+		'ARTICLE_PATHS' : [ 'en/article' ],
 		'MENUITEMS' : (
 			( 'Archive', '/en/archives.html' ),
 			( 'Tags', '/en/tags.html' ),
