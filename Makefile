@@ -61,7 +61,6 @@ help:
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(DEVDIR) -s $(CONFFILE) $(PELICANOPTS)
-	cp -Ru content/static $(DEVDIR)/en
 
 clean:
 	[ ! -d $(DEVDIR) ] || rm -rf $(DEVDIR)
@@ -97,7 +96,6 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(PRODDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	cp -Ru content/static $(PRODDIR)/en
 	
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(PRODDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)

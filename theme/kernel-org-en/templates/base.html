@@ -20,7 +20,7 @@
         <link type="text/css" rel="stylesheet" href="{{ SITEURL }}/theme/css/typogrify.css" />
     {% endif %}
     <link type="text/css" rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" media="screen" />
-    <link type="text/css" rel="stylesheet" href="{{ SITEURL }}/static/css/custom.css" media="screen" />
+    <link type="text/css" rel="stylesheet" href="/static/css/custom.css" media="screen" />
 	{% if FEED_ALL_ATOM %}
 	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
 	{% endif %}
@@ -28,7 +28,7 @@
 	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
 	{% endif %}
 	{% if 'tipue_search' in PLUGINS %}
-		<link rel="stylesheet" type="text/css" href="{{ SITEURL }}/static/tipuesearch/tipuesearch.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/static/tipuesearch/tipuesearch.css" media="screen">
 	{% endif %}
 </head>
 
