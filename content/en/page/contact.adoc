@@ -1,4 +1,4 @@
-Контакт
+Contact
 =======
 :Slug: contact
 :Date: 1970-01-01
@@ -8,6 +8,6 @@
 
 In order to get in touch with me, please send an email to:
 
-**puramoca021 at gmail point com**
+image:../static/image/author/mudrovanya-contact-email.png[]
 
 I deliberately specify email address like this in order to make email harvesting complicated to all email harvesters, be they humans or programs :)
