@@ -69,22 +69,11 @@ regenerate:
 	$(PELICAN) -r $(INPUTDIR) -o $(DEVDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 trextract:
-	pybabel extract -F ./translations/babel.cfg -o ./translations/messages.pot ./
-
-trinit:
-	pybabel init -l en_US -d ./translations -i ./translations/messages.pot
-	pybabel init -l sr_RS -d ./translations -i ./translations/messages.pot
-	pybabel init -l sr    -d ./translations -i ./translations/messages.pot
-	pybabel init -l en    -d ./translations -i ./translations/messages.pot
+	./msgext.py -m ./theme/kernel-org-msg-en.po -i ./theme/kernel-org-tmpl/templates/*.html
 	
 trcompile:
-	pybabel compile -f -d ./translations
-
-trupdate:
-	pybabel update -l en -i ./translations/messages.pot -d ./translations
-	
-trans:
-	cd theme/$(THEME)
+	./msgput.py -m ./theme/kernel-org-msg-en.po -i ./theme/kernel-org-tmpl/templates/*.html -o ./theme/kernel-org-en/templates
+	./msgput.py -m ./theme/kernel-org-msg-sr.po -i ./theme/kernel-org-tmpl/templates/*.html -o ./theme/kernel-org-sr/templates
 	
 serve:
 ifdef PORT

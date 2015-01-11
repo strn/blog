@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {% trans %}Tags{% endtrans %}{% endblock %}
+
+{% block content %}
+
+<section id="content" class="body">
+    <h2>{% trans %}Site tags{% endtrans %}:</h2>
+    <ul class="tagcloud">
+	    {% for tag in tag_cloud %}
+	        <li class="tag-{{ tag.1 }}">
+				<a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a> ({{ articles|count }} {% trans %}articles{% endtrans %}
+				{% if TAG_FEED_ATOM %}
+				|<a href="{{ SITEURL }}/{{ TAG_FEED_ATOM|format(tag.0.slug) }}" type="application/atom+xml" rel="alternate">
+					<img src="/static/image/newsfeed-atom.png" height="{{ FEED_ICON_SIZE_TAG_CLOUD }}" width="{{ FEED_ICON_SIZE_TAG_CLOUD }}" alt="{% trans %}Atom Feed{% endtrans %}"/> Atom
+				</a>
+				{% endif %}
+				{% if TAG_FEED_RSS %}
+				|<a href="{{ SITEURL }}/{{ TAG_FEED_RSS|format(tag.0.slug) }}" type="application/rss+xml" rel="alternate">
+					<img src="/static/image/newsfeed-rss.png" height="{{ FEED_ICON_SIZE_TAG_CLOUD }}" width="{{ FEED_ICON_SIZE_TAG_CLOUD }}" alt="{% trans %}RSS Feed{% endtrans %}"/> RSS
+				</a>
+				{% endif %})
+			</li>
+	    {% endfor %}
+	</ul>
+	<br/>
+	<p>
+		{% trans %}You can subscribe to articles with certain labels. Just click appropriate icon and enter the link in your RSS reader{% endtrans %}.
+	</p>
+</section>
+
+{% endblock %}

@@ -82,9 +82,6 @@ LINKS = False
 # Social widget
 SOCIAL = ()
 
-# Disqus plugin
-DISQUS_SITENAME = 'mudrovanya-sr'
-
 # Pagination (articles per page)
 DEFAULT_PAGINATION = 3
 
@@ -122,7 +119,7 @@ I18N_SUBSITES = {
 		'EMAIL_FIELD_PLACEHOLDER' : 'Your email address',
 		'SUBSCRIBE_BUTTON_TITLE' : 'Subscribe',
 		'MAILCHIMP_FORM_ACTION' : 'Mailchimp form',
-		'THEME' : 'theme/kernel-org',
+		'THEME' : 'theme/kernel-org-en',
 		'SITESUBTITLE' : 'Intelectual juggling',
 		'LOCALE' : 'en_US',
 		'DEFAULT_LANG' : 'en',
@@ -135,7 +132,6 @@ I18N_SUBSITES = {
 			( 'About me', '/en/page/about.html' ),
 			( 'Contact', '/en/page/contact.html' )
 		),
-		'DISQUS_SITENAME' : 'mudrovanja',
 	},
 }
 
