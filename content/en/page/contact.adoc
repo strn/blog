@@ -8,6 +8,6 @@ Contact
 
 In order to get in touch with me, please send an email to:
 
-image:../static/image/author/mudrovanya-contact-email.png[]
+image:/static/image/author/mudrovanya-contact-email.png[]
 
 I deliberately specify email address like this in order to make email harvesting complicated to all email harvesters, be they humans or programs :)
