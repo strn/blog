@@ -1,0 +1,72 @@
+[analytics.html]
+
+[archives.html]
+Archives for = Архива за
+
+[article.html]
+Permalink to = Стална веза ка чланку:
+
+[article_infos.html]
+By = Написао:
+In = Категорија:
+get the pdf = Преузмите ПДФ
+
+[author.html]
+
+[authors.html]
+
+[base.html]
+Atom Feed = Довод типа Атом
+RSS Feed = Довод типа РСС
+Other resources = Остале везе
+Social = Праћење
+Site Atom Feed = Довод типа Атом за цео сајт
+
+[category.html]
+
+[comments.html]
+
+[disqus_script.html]
+en = sr
+Please enable Javascript in order to see = Молим омогућите JavaScript како бисте видели
+Disqus comments = коментаре са сајта Disqus
+Comments served by = Коментаре послужује
+Disqus = 
+
+[index.html]
+Other articles = Остали чланци
+read more ... = цео текст ...
+Pages = Странице
+Permalink to = Стална веза ка чланку:
+
+[page.html]
+
+[period_archives.html]
+Archives for = Архива за
+
+[piwik.html]
+
+[search.html]
+Search = Претрага
+Search results for = Резултати претраге за
+
+[tag.html]
+
+[taglist.html]
+tags = Ознаке
+get the pdf = преузети ПДФ
+
+[tags.html]
+Tags = Ознаке
+Site tags = Ознаке чланака на сајту
+articles = чланака
+Atom Feed = Ток типа Атом
+RSS Feed = Ток типа РСС
+You can subscribe to articles with certain labels. Just click appropriate icon and enter the link in your RSS reader = Можете се претплатити на чланке са појединим ознакама. Кликните на одговарујућу икону и унесите везу у ваш RSS читач
+
+[translations.html]
+Translations = Преводи
+
+[twitter.html]
+Tweet = Цвркут
+

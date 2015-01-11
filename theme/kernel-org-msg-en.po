@@ -1,0 +1,72 @@
+[analytics.html]
+
+[archives.html]
+Archives for = 
+
+[article.html]
+Permalink to = 
+
+[article_infos.html]
+By = 
+In = 
+get the pdf = 
+
+[author.html]
+
+[authors.html]
+
+[base.html]
+Atom Feed = 
+RSS Feed = 
+Other resources = 
+Social = 
+Site Atom Feed = 
+
+[category.html]
+
+[comments.html]
+
+[disqus_script.html]
+en = 
+Please enable Javascript in order to see = 
+Disqus comments = 
+Comments served by = 
+Disqus = 
+
+[index.html]
+Other articles = 
+read more ... = 
+Pages = 
+Permalink to = 
+
+[page.html]
+
+[period_archives.html]
+Archives for = 
+
+[piwik.html]
+
+[search.html]
+Search = 
+Search results for = 
+
+[tag.html]
+
+[taglist.html]
+tags = 
+get the pdf = 
+
+[tags.html]
+Tags = 
+Site tags = 
+articles = 
+Atom Feed = 
+RSS Feed = 
+You can subscribe to articles with certain labels. Just click appropriate icon and enter the link in your RSS reader = 
+
+[translations.html]
+Translations = 
+
+[twitter.html]
+Tweet = 
+
