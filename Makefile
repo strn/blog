@@ -7,7 +7,7 @@ INPUTDIR=$(BASEDIR)/content
 # We will have 2 output directories:
 #   - "prod" for production (published on GitHub)
 #   - "dev" for development (accessible through local HTTP server)
-PRODDIR=$(BASEDIR)/prod
+PRODDIR=$(BASEDIR)/../strnblog
 DEVDIR=$(BASEDIR)/dev
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py

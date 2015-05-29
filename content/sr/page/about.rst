@@ -1,9 +1,9 @@
+******
 О мени
-======
-:Slug: about
-:Date: 1970-01-01
-:Tags: about
-:Lang: sr
-:Encoding: utf-8
+******
+:slug: about
+:date: 1970-01-01
+:tags: about
+:lang: sr
 
 Живим од свог рада у једној лепој централно-европској земљи.

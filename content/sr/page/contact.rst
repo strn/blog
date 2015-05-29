@@ -1,14 +1,15 @@
+*******
 Контакт
-=======
-:Slug: contact
-:Date: 1970-01-01
-:Tags: contact
-:Lang: sr
-:Encoding: utf-8
+*******
+:slug: contact
+:date: 1970-01-01
+:tags: contact
+:lang: sr
 
 Да бисте ступили са мном у контакт, пошаљите поруку на адресу електронске поште:
 
-image:/static/image/author/mudrovanja-kontakt-emajl.png[]
+.. image:: /static/image/author/mudrovanja-kontakt-emajl.png
+   :alt: Контакт адреса е-поште
 
 Адресу намерно дајем у овом облику како бих максимално отежао посао „жетеоцима“ адреса е-поште, били они људи или аутомати :)
 

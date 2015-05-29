@@ -12,7 +12,7 @@ from pelicanconf import *
 
 SITEURL = 'http://strn.github.io'
 # Where to create site
-OUTPUT_PATH = 'prod/'
+OUTPUT_PATH = '/home/zoli/project/python/strnblog/'
 DELETE_OUTPUT_DIRECTORY = False
 # Disqus plugin
 DISQUS_SITENAME = 'mudrovanya-sr'
